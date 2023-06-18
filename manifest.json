@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Memorable Word Extension",
+  "version": "1.0",
+  "description": "A Chrome extension for selecting digits from a memorable word.",
+  "permissions": ["activeTab"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

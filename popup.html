@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup</title>
+
+  <style>
+    /* Add your additional styles here */
+  </style>
+</head>
+<body>
+  <div id="app" class="container mx-auto px-4 py-8">
+    <h2 class="text-lg font-semibold">Enter a memorable word:</h2>
+    <input v-model="memorableWord" type="text" class="mt-2 uppercase w-full px-4 py-2 border border-gray-300 rounded-md">
+
+    <h2 class="text-lg font-semibold mt-4">Enter the required digits:</h2>
+    <div id="digit-container" class="flex flex-col items-center mt-2 space-y-4">
+      <input v-for="(digit, index) in digits" :key="index" class="digit-input mr-2 w-full px-4 py-2 border border-gray-300 rounded-md" type="number" min="1" max="99" v-model="digits[index]" @keydown.enter="index === digits.length - 1 ? focusNextInput(index) : null" @keydown.tab="index === digits.length - 1 ? focusNextInput(index) : null" @input="updateSelectedLetters">
+      <span v-for="(letter, index) in selectedLetters" :key="index" v-if="letter" class="mr-2">Letter number {{ index + 1 }}: {{ letter }}</span>
+    </div>
+
+    <h2 class="text-lg font-semibold mt-4">Filtered Selected Letters:</h2>
+    <p class="mt-2 text-xl">{{ filteredSelectedLetters }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
